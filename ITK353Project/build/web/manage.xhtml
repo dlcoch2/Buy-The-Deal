@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <link rel="SHORTCUT ICON" href="./resources/images/favicon.ico"/>
+        <title>Buy the Deal - My Account</title>
+        <style>
+            label {
+                float: left;
+                width: 10em;
+            }
+        </style>
+    </h:head>
+    <h:body style ="background-color:#299ed4">
+        <table>
+            <tr>
+                <td></td>
+                <td align="center"><h:form><h:commandLink action="#{DealBean.indexLink()}"><h:graphicImage  value="#{resource['images:logo.jpg']}" style ="border:none"/></h:commandLink></h:form></td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <h:form>
+                        <p><font color="white" face="arial">#{DealBean.getWelcomeMessage()}!</font></p>
+                        <p><font color="white" face="arial">Buy The Deal for: Bloomington Illinois</font></p>
+                        <p><font color="white" face="arial">Bloomington's Current Tempature: </font></p>
+                        <h:outputText value= "#{DealBean.getWeather()}" escape= "false"/>
+                        <h:commandButton id="logout" value="Logout" action="#{DealBean.logout()}" /><br/><br/>
+                        <h:commandLink id="indexLink" action="#{DealBean.indexLink()}"><h:graphicImage value="#{resource['images:viewDeal.jpg']}"  style ="border:none" /></h:commandLink> <br/>
+                    </h:form>
+                </td>
+                <td width="100%" align="center" bgcolor ="#A7C6D3">
+                    <table width="500px" align="center">
+                        <tr>
+                            <td>
+                                <h1>My Account</h1>
+                                <h:form>
+                                    <b>Contact Info:</b><br/><br/>
+                                    <label>First Name:</label> <h:inputText id="firstName" maxlength="20" value="#{DealBean.firstName}" /><br/>
+                                    <h:outputText id="firstNameMessage" escape="false" value="#{DealBean.firstNameMessage}" />
+                                    <label>Last Name:</label> <h:inputText id="lastName" maxlength="20" value="#{DealBean.lastName}" /><br/>
+                                    <h:outputText id="lastNameMessage" escape="false" value="#{DealBean.lastNameMessage}" />
+                                    <label>Street Address:</label> <h:inputText id="streetAddress"  maxlength="50" value="#{DealBean.streetAddress}" /><br/>
+                                    <h:outputText id="streetAddressMessage" escape="false" value="#{DealBean.streetAddressMessage}" />
+                                    <label>City/State:</label> <h:inputText id="city" maxlength="30" value="#{DealBean.city}" /> /
+                                    <h:inputText id="state" maxlength="2" size="2" value="#{DealBean.state}" /><br/>
+                                    <h:outputText id="cityMessage" escape="false" value="#{DealBean.cityMessage}" />
+                                    <h:outputText id="stateMessage" escape="false" value="#{DealBean.stateMessage}" />
+                                    <label>Zip Code:</label> <h:inputText id="zipCode" maxlength="5" value="#{DealBean.zipCode}" /><br/>
+                                    <h:outputText id="zipCodeMessage" escape="false" value="#{DealBean.zipCodeMessage}" />
+                                    <label>Phone:</label> <h:inputText id="phone" value="#{DealBean.phone}" /><br/>
+                                    <h:outputText id="phoneMessage" escape="false" value="#{DealBean.phoneMessage}" />
+                                    <label>Email:</label> <h:inputText id="email" maxlength="40" value="#{DealBean.email}" /><br/>
+                                    <h:outputText id="emailMessage" escape="false" value="#{DealBean.emailMessage}" />
+                                    <b>Credit Card Info:</b><br/><br/>
+                                    <label>Credit Card Number:</label> <h:inputText id="creditCardNumber" maxlength="16" value="#{DealBean.ccNumber}" /><br/><br/>
+                                    <label>Issuer:</label> <h:selectOneMenu id="ccIuuser" value="#{DealBean.ccIssuer}" >
+                                        <f:selectItem id="issuerNone" itemLabel="Select an Issuer..." itemValue="none" />
+                                        <f:selectItem id="issuerVisa" itemLabel="Visa" itemValue="VISA" />
+                                        <f:selectItem id="issuerMastercard" itemLabel="Mastercard" itemValue="MASTERCARD" />
+                                        <f:selectItem id="issuerDiscover" itemLabel="Discover" itemValue="DISCOVER" />
+                                    </h:selectOneMenu><br/>
+                                    <h:outputText id="ccIssuerMessage" escape="false" value="#{DealBean.ccIssuerMessage}" />
+                                    <label>Name on Card:</label> <h:inputText id="ccName" maxlength="40" value="#{DealBean.ccName}" /><br/>
+                                    <h:outputText id="ccNameMessage" escape="false" value="#{DealBean.ccNameMessage}" />
+                                    <label>Expiration Month / Year:</label> <h:inputText id="ccMonth" maxlength="2" size="2" value="#{DealBean.ccMonth}" /> /
+                                    <h:inputText id="ccYear" maxlength="4" size="4" value="#{DealBean.ccYear}" /><br/>
+                                    <h:outputText id="ccMonthMessage" escape="false" value="#{DealBean.ccMonthMessage}" />
+                                    <h:outputText id="ccYearMessage" escape="false" value="#{DealBean.ccYearMessage}" />
+                                    <b>Change Password:</b><br/><br/>
+                                    <label>Current Password</label> <h:inputSecret id="currentPassword" value="#{DealBean.currentPassword}" /> <br/>
+                                    <h:outputText id="currentPasswordMessage" escape="false" value="#{DealBean.currentPasswordMessage}" />
+                                    <label>New Password:</label> <h:inputSecret id="newPassword" value="#{DealBean.newPassword}" /><br/>
+                                    <h:outputText id="newPasswordMessage" escape="false" value="#{DealBean.newPasswordMessage}" />
+                                    <label>Verify Password:</label> <h:inputSecret id="verifyPassword" value="#{DealBean.verifyPassword}" /><br/>
+                                    <h:outputText id="verifyPasswordMessage" escape="false" value="#{DealBean.verifyPasswordMessage}" />
+                                    <h:commandButton id="manageSubmit" value="Submit" action="#{DealBean.manageSubmit()}" /><br/><br/>
+                                    <h:commandButton id="pastPurchases" value="View Past Purchases" action="#{DealBean.getPreviousOrders()}" />
+                                </h:form>
+                                <br/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <h:outputText id='successfulManage' escape='false' value='#{DealBean.successfulManage}' />
+    </h:body>
+</html>
+

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <link rel="SHORTCUT ICON" href="./resources/images/favicon.ico"/>
+        <title>Buy the Deal - Order Confirmation</title>
+    </h:head>
+    <h:body style ="background-color:#299ed4">
+        <table>
+            <tr>
+                <td></td>
+                <td align="center"><h:form><h:commandLink action="#{DealBean.indexLink()}"><h:graphicImage  value="#{resource['images:logo.jpg']}" style ="border:none"/></h:commandLink></h:form></td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <h:form>
+                        <p><font color="white" face="arial">#{DealBean.getWelcomeMessage()}!</font></p>
+                        <p><font color="white" face="arial">Buy The Deal for: Bloomington Illinois</font></p>
+                        <p><font color="white" face="arial">Bloomington's Current Tempature: </font></p>
+                        <h:outputText value= "#{DealBean.getWeather()}" escape= "false"/>
+                        <h:commandButton id="logout" value="Logout" action="#{DealBean.logout()}" /><br/><br/>
+                        <h:commandLink id="manageLink" action="#{DealBean.manageLink()}"><h:graphicImage value="#{resource['images:manageAccount.jpg']}" style ="border:none" /></h:commandLink><br/>
+                        <h:commandLink id="indexLink" action="#{DealBean.indexLink()}"><h:graphicImage value="#{resource['images:viewDeal.jpg']}"  style ="border:none" /></h:commandLink> <br/>
+                    </h:form>
+                </td>
+                <td width="100%" bgcolor ="#A7C6D3">
+                    <center><h1>Order Complete</h1></center>
+                    <table valign ="middle" align ="center">
+                        <tr>
+                            <td valign="center">
+                                    <h:outputText value ="Your Order has been filled and will be shipped within two business days.  You will recieve an email confirmation shortly." escape = "false"/>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                </td>
+            </tr>
+        </table>
+    </h:body>
+</html>
+
