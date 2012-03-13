@@ -1,1 +1,18 @@
-View use case outline for a quick walkthrough of the website's functionality
+Buy The Deal is a website that a friend and I created for a pair programming project in a web development course I took at Illinois State.   The purpose of the project was to create a daily deal website that would host a different deal every day (ex. Groupon).
+
+
+The following technologies were used in the creation of the website:
+JSF
+JPA
+FLASH
+ActionScript 2
+JavaScript
+JAVA
+SQL
+JAVA Mail
+JSF Timed Auto Redirect
+AJAX
+Web Services (WSDL)
+GlashFish Server
+
+To understand the basic functions of the web site, view the Use Case Outline document for screenshots and brief descriptions.
